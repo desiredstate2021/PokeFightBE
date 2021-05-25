@@ -5,7 +5,7 @@ pokemonRouter.use(express.json())
 
 
 pokemonRouter.get('/pokemon', (req, res) => {
-    res.send(JSON.stringify(pokedex))
+    res.send(pokedex)
 })
 
 pokemonRouter.get('/pokemon/:id', (req, res) => {
@@ -17,19 +17,19 @@ pokemonRouter.get('/pokemon/:id', (req, res) => {
 pokemonRouter.get('/pokemon/:id/:info', (req, res) => {
     let { id, info } = req.params
     const pokemon = pokedex.find(e => e.id === parseInt(id))
-    if(info === 'base') {
+    if (info === 'base') {
         res.send(pokemon.base)
     }
-    else if(info === 'type') {
+    else if (info === 'type') {
         res.send(pokemon.type)
     }
-    else if(info === 'name') {
+    else if (info === 'name') {
         res.send(pokemon.name)
     }
     else {
         res.send(pokemon)
     }
-    
+
 })
 
 
